@@ -13,7 +13,8 @@ export const query = graphql`
       createdAt(fromNow: true)
       country
       image {
-        fluid {
+        resize(width: 600) {
+          width
           src
         }
       }
@@ -30,7 +31,7 @@ const PostTemplate = ({ data: { post } }) => (
     <h1>{post.title}</h1>
     <h2>{post.subtitle}</h2>
     <p>{post.createdAt}</p>
-    <img src={post.image.fluid.src} alt={post.title} />
+    <img src={post.image.resize.src} alt={post.title} />
     <div>
       {documentToReactComponents(post.content.json, {
         renderNode: {

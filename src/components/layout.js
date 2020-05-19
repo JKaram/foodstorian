@@ -1,12 +1,38 @@
 import React from "react"
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
+
 import { Header } from "./index"
+import theme from "../themes/theme"
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background: ${p => p.theme.colors.white};
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;;
+    color: ${p => p.theme.colors.black};
+    h1,
+    h2,
+    p {
+      margin: 0;
+      font-size: 18px;
+    }
+  }
+`
+
+const Main = styled.div`
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+`
 
 export const Layout = ({ children }) => {
   return (
-    <>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <Header />
-      <main>{children}</main>
+      <Main>{children}</Main>
       <footer>Footer</footer>
-    </>
+    </ThemeProvider>
   )
 }
