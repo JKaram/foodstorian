@@ -21,9 +21,9 @@ export const query = graphql`
 export default ({ data }) => (
   <div>
     {data.posts.nodes.map(post => (
-      <p>
+      <div key={`post-${post.slug}`}>
         <Link to={`/${post.slug}`}>{post.title}</Link>
-      </p>
+      </div>
     ))}
   </div>
 )
