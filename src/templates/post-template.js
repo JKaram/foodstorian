@@ -3,6 +3,8 @@ import { graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types"
 
+import { Layout } from "../components/index"
+
 export const query = graphql`
   query($slug: String!) {
     post: contentfulPost(slug: { eq: $slug }) {
@@ -23,7 +25,7 @@ export const query = graphql`
 `
 
 const PostTemplate = ({ data: { post } }) => (
-  <div>
+  <Layout>
     <h1>{post.title}</h1>
     <h2>{post.subtitle}</h2>
     <p>{post.createdAt}</p>
@@ -43,7 +45,7 @@ const PostTemplate = ({ data: { post } }) => (
         },
       })}
     </div>
-  </div>
+  </Layout>
 )
 
 export default PostTemplate
