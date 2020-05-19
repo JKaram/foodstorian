@@ -15,7 +15,8 @@ module.exports = {
     description: "Learn the history of food",
   },
   plugins: [
-    `@contentful/gatsby-transformer-contentful-richtext`,
+    `gatsby-plugin-react-helmet`,
+
     {
       resolve: `gatsby-source-contentful`,
       options: {
