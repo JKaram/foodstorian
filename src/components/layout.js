@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Main = styled.div`
-  max-width: 600px;
+  max-width: 800px;
   width: 100%;
   margin: 0 auto;
 `
@@ -32,7 +32,7 @@ export const Layout = ({ children }) => {
       <GlobalStyle />
       <Header />
       <Main>{children}</Main>
-      <footer>Footer</footer>
+      {/* <footer>Footer</footer> */}
     </ThemeProvider>
   )
 }

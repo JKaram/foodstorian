@@ -1,4 +1,5 @@
 import React from "react"
+import styled from "styled-components"
 import { graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types"
@@ -10,10 +11,10 @@ export const query = graphql`
     post: contentfulPost(slug: { eq: $slug }) {
       title
       subtitle
-      createdAt(fromNow: true)
+      createdAt
       country
       image {
-        resize(width: 600) {
+        resize(width: 800) {
           width
           src
         }
@@ -31,15 +32,24 @@ const PostTemplate = ({ data: { post } }) => (
     <h1>{post.title}</h1>
     <h2>{post.subtitle}</h2>
     <p>{post.createdAt}</p>
-    <img src={post.image.resize.src} alt={post.title} />
+    <img
+      src={post.image.resize.src}
+      alt={post.title}
+      style={{
+        width: "100%",
+      }}
+    />
     <div>
       {documentToReactComponents(post.content.json, {
         renderNode: {
           [BLOCKS.EMBEDDED_ASSET]: node => (
-            <img
-              src={`${node.data.target.fields.file["en-US"].url}?w=300&q=90`}
+            <Img
+              src={`${node.data.target.fields.file["en-US"].url}?w=300`}
               alt={node.data.target.fields.title["en-US"]}
             />
+          ),
+          [BLOCKS.QUOTE]: (_node, children) => (
+            <Blockquote>{children}</Blockquote>
           ),
         },
       })}
@@ -48,3 +58,28 @@ const PostTemplate = ({ data: { post } }) => (
 )
 
 export default PostTemplate
+
+const Img = styled.img`
+  display: block;
+  margin: 0 auto;
+`
+
+const Blockquote = styled.blockquote`
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+
+  &:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+  }
+  p {
+    display: inline;
+  }
+`
