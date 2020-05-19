@@ -9,6 +9,7 @@ require("dotenv").config()
 module.exports = {
   /* Your site config here */
   plugins: [
+    `@contentful/gatsby-transformer-contentful-richtext`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
