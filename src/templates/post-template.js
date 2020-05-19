@@ -34,9 +34,6 @@ const PostTemplate = ({ data: { post } }) => (
     <div>
       {documentToReactComponents(post.content.json, {
         renderNode: {
-          [BLOCKS.HEADING_2]: (_node, children) => (
-            <h2 style={{ color: "red" }}>{children}</h2>
-          ),
           [BLOCKS.EMBEDDED_ASSET]: node => (
             <img
               src={`${node.data.target.fields.file["en-US"].url}?w=300&q=90`}
