@@ -8,6 +8,10 @@ require("dotenv").config()
 
 module.exports = {
   /* Your site config here */
+  siteMetadata: {
+    title: "Foodstorian",
+    description: "Learn the history of food",
+  },
   plugins: [
     `@contentful/gatsby-transformer-contentful-richtext`,
     {
