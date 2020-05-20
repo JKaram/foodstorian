@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { graphql, Link } from "gatsby"
 
-import { Layout } from "../components/index"
+import { Layout, StyledLink } from "../components/index"
 
 export const query = graphql`
   {
@@ -29,14 +29,16 @@ export default ({ data }) => (
   <Layout>
     {data.posts.nodes.map(post => (
       <Wrapper key={`post-${post.slug}`}>
-        <img src={post.image.resize.src} />
-        <div style={{ padding: "20px" }}>
+        <StyledLink to={`/${post.slug}`}>
+          <img src={post.image.resize.src} />
+        </StyledLink>
+        <div style={{ padding: "20px 28px ", border: "1px solid black" }}>
           <h2>
-            <Link to={`/${post.slug}`}>{post.title}s</Link>
+            <StyledLink to={`/${post.slug}`}>{post.title}s</StyledLink>
           </h2>
-          <time>{post.createdAt}</time>
+          <time style={{ "font-size": "smaller" }}>{post.createdAt}</time>
           {post.description && (
-            <div style={{ "margin-top": "20px" }}>
+            <div style={{ "margin-top": "15px", "font-size": "16px" }}>
               {post.description.description}
             </div>
           )}
@@ -47,14 +49,22 @@ export default ({ data }) => (
 )
 
 const Wrapper = styled.article`
-  margin: 0 auto;
+  margin: 0 auto 36px;
   max-width: 640px;
   width: 100%;
-  border: 1px solid black;
-  margin-bottom: 36px;
 
-  h1 {
-    font-size: 42px;
-    text-decoration: none;
+  h2 {
+    font-size: 24px;
+  }
+
+  img {
+    max-width: 640px;
+    width: 100%;
+  }
+
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    /* transform: scale(1.01); */
   }
 `
