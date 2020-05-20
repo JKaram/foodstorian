@@ -43,13 +43,10 @@ const PostTemplate = ({ data: { post } }) => (
       {documentToReactComponents(post.content.json, {
         renderNode: {
           [BLOCKS.EMBEDDED_ASSET]: node => (
-            <Img
-              src={`${node.data.target.fields.file["en-US"].url}?w=300`}
+            <img
+              src={`${node.data.target.fields.file["en-US"].url}?w=300&q=90`}
               alt={node.data.target.fields.title["en-US"]}
             />
-          ),
-          [BLOCKS.QUOTE]: (_node, children) => (
-            <Blockquote>{children}</Blockquote>
           ),
         },
       })}

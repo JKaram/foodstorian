@@ -10,6 +10,8 @@ const Wrapper = styled.header`
 
   h1 {
     font-size: 2em;
+    width: fit-content;
+    margin: 0 auto;
   }
 `
 

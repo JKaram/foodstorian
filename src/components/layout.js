@@ -9,8 +9,9 @@ const GlobalStyle = createGlobalStyle`
     background: ${p => p.theme.colors.white};
     min-height: 100vh;
     margin: 0;
-    font-family: 'Roboto', sans-serif;;
+    font-family: Helvetica, sans-serif;;
     color: ${p => p.theme.colors.black};
+    
     h1,
     h2,
     p {
@@ -21,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Main = styled.div`
-  max-width: 800px;
+  max-width: 744px;
   width: 100%;
   margin: 0 auto;
 `
