@@ -7,9 +7,11 @@ const Wrapper = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
 
-  height: 100px;
+  height: 80px;
   width: 100%;
+  margin-bottom: 30px;
 
   h1 {
     font-size: 2.5em;

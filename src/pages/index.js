@@ -34,7 +34,7 @@ export default ({ data }) => (
         </StyledLink>
         <div style={{ padding: "20px 28px " }}>
           <h2>
-            <StyledLink to={`/${post.slug}`}>{post.title}s</StyledLink>
+            <StyledLink to={`/${post.slug}`}>{post.title}</StyledLink>
           </h2>
           <time style={{ "font-size": "smaller" }}>{post.createdAt}</time>
           {post.description && (

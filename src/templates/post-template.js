@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types"
 
-import { Layout } from "../components"
+import { Layout, SEO } from "../components"
 
 export const query = graphql`
   query($slug: String!) {

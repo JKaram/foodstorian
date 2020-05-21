@@ -1,10 +1,19 @@
-// ;<div>
-//   Icons made by{" "}
-//   <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
-//     Freepik
-//   </a>{" "}
-//   from{" "}
-//   <a href="https://www.flaticon.com/" title="Flaticon">
-//     www.flaticon.com
-//   </a>
-// </div>
+import React from "react"
+import styled from "styled-components"
+
+export const Footer = () => (
+  <StyledFooter>
+    <p>Christina Stokes</p>
+  </StyledFooter>
+)
+
+const StyledFooter = styled.footer`
+  background-color: #fff;
+  width: 100%;
+  border-top: 1px solid #efefef;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`

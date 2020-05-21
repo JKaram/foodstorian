@@ -1,7 +1,7 @@
 import React from "react"
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
 
-import { Header } from "./index"
+import { Header, Footer } from "./index"
 import theme from "../themes/theme"
 
 const GlobalStyle = createGlobalStyle`
@@ -35,7 +35,7 @@ export const Layout = ({ children }) => {
       <GlobalStyle />
       <Header />
       <Main>{children}</Main>
-      {/* <footer>Footer</footer> */}
+      <Footer />
     </ThemeProvider>
   )
 }
