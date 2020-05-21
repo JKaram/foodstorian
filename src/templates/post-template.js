@@ -29,48 +29,50 @@ export const query = graphql`
 const PostTemplate = ({ data: { post } }) => (
   <Layout>
     {/* <SEO title={post.title} description={post.subtitle} /> */}
-    <img
-      src={post.image.resize.src}
-      alt={post.title}
-      style={{
-        "margin-top": "1em",
-        width: "100%",
-      }}
-    />
-    <h1
-      style={{
-        "font-size": "2.5em",
-        margin: "10px 0 ",
-        "letter-spacing": "1px",
-      }}
-    >
-      {post.title}
-    </h1>
-    <h2 style={{ "font-size": "1.2em", "margin-bottom": "10px" }}>
-      {post.subtitle}
-    </h2>
-    <time style={{ "font-size": "smaller" }}>{post.createdAt}</time>
+    <div styled={{ display: "flex" }}>
+      <img
+        src={post.image.resize.src}
+        alt={post.title}
+        style={{
+          "margin-top": "1em",
+          width: "100%",
+        }}
+      />
+      <h1
+        style={{
+          "font-size": "2.5em",
+          margin: "10px 0 ",
+          "letter-spacing": "1px",
+        }}
+      >
+        {post.title}
+      </h1>
+      <h2 style={{ "font-size": "1.2em", "margin-bottom": "10px" }}>
+        {post.subtitle}
+      </h2>
+      <time style={{ "font-size": "smaller" }}>{post.createdAt}</time>
 
-    <div style={{ "line-height": "32px", "margin-top": "30px" }}>
-      {documentToReactComponents(post.content.json, {
-        renderNode: {
-          [BLOCKS.PARAGRAPH]: (node, children) => (
-            <Paragraph>{children}</Paragraph>
-          ),
-          [BLOCKS.QUOTE]: (node, children) => (
-            <Blockquote>{children}</Blockquote>
-          ),
-          [BLOCKS.EMBEDDED_ASSET]: node => (
-            <img
-              src={`${node.data.target.fields.file["en-US"].url}?w=300&q=90`}
-              alt={node.data.target.fields.title["en-US"]}
-            />
-          ),
-          [BLOCKS.HYPERLINK]: (node, children) => (
-            <a style={{ color: "red" }}>{children}</a>
-          ),
-        },
-      })}
+      <div style={{ "line-height": "32px", "margin-top": "30px" }}>
+        {documentToReactComponents(post.content.json, {
+          renderNode: {
+            [BLOCKS.PARAGRAPH]: (node, children) => (
+              <Paragraph>{children}</Paragraph>
+            ),
+            [BLOCKS.QUOTE]: (node, children) => (
+              <Blockquote>{children}</Blockquote>
+            ),
+            [BLOCKS.EMBEDDED_ASSET]: node => (
+              <img
+                src={`${node.data.target.fields.file["en-US"].url}?w=300&q=90`}
+                alt={node.data.target.fields.title["en-US"]}
+              />
+            ),
+            [BLOCKS.HYPERLINK]: (node, children) => (
+              <a style={{ color: "red" }}>{children}</a>
+            ),
+          },
+        })}
+      </div>
     </div>
   </Layout>
 )

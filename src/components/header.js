@@ -8,6 +8,7 @@ const Wrapper = styled.header`
   justify-content: center;
   align-items: center;
   background-color: #fff;
+  border-bottom: 1px solid #efefef;
 
   height: 80px;
   width: 100%;
