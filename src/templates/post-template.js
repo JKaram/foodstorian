@@ -29,24 +29,45 @@ export const query = graphql`
 const PostTemplate = ({ data: { post } }) => (
   <Layout>
     {/* <SEO title={post.title} description={post.subtitle} /> */}
-    <h1>{post.title}</h1>
-    <h2>{post.subtitle}</h2>
-    <p>{post.createdAt}</p>
     <img
       src={post.image.resize.src}
       alt={post.title}
       style={{
+        "margin-top": "1em",
         width: "100%",
       }}
     />
-    <div>
+    <h1
+      style={{
+        "font-size": "2.5em",
+        margin: "10px 0 ",
+        "letter-spacing": "1px",
+      }}
+    >
+      {post.title}
+    </h1>
+    <h2 style={{ "font-size": "1.2em", "margin-bottom": "10px" }}>
+      {post.subtitle}
+    </h2>
+    <time style={{ "font-size": "smaller" }}>{post.createdAt}</time>
+
+    <div style={{ "line-height": "32px", "margin-top": "30px" }}>
       {documentToReactComponents(post.content.json, {
         renderNode: {
+          [BLOCKS.PARAGRAPH]: (node, children) => (
+            <Paragraph>{children}</Paragraph>
+          ),
+          [BLOCKS.QUOTE]: (node, children) => (
+            <Blockquote>{children}</Blockquote>
+          ),
           [BLOCKS.EMBEDDED_ASSET]: node => (
             <img
               src={`${node.data.target.fields.file["en-US"].url}?w=300&q=90`}
               alt={node.data.target.fields.title["en-US"]}
             />
+          ),
+          [BLOCKS.HYPERLINK]: (node, children) => (
+            <a style={{ color: "red" }}>{children}</a>
           ),
         },
       })}
@@ -66,7 +87,6 @@ const Blockquote = styled.blockquote`
   border-left: 10px solid #ccc;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
 
   &:before {
     color: #ccc;
@@ -79,4 +99,8 @@ const Blockquote = styled.blockquote`
   p {
     display: inline;
   }
+`
+
+const Paragraph = styled.p`
+  margin-bottom: 12px;
 `
