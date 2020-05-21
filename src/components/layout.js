@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
 
 const Main = styled.div`
   display: flex;
-  max-width: 800px;
+  max-width: 900px;
   width: 100%;
   margin: 0 auto;
 `

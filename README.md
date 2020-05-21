@@ -12,6 +12,7 @@ First project using GatsbyJS and Contenful CMS.
 - SEO optimization
 - Search blog posts
 - Pagination
+- Comment Section
 
 ![version1](https://raw.githubusercontent.com/JKaram/foodstorian/master/static/images/readme_v1.PNG)
 

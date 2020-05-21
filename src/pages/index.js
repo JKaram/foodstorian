@@ -28,10 +28,18 @@ export const query = graphql`
 
 export default ({ data }) => (
   <Layout>
-    <div style={{ width: "160px", display: "inline-block" }}>
-      <h1>About Me</h1>
-      <img src={christina} alt="Christina Profile Photo" width="80px" />
-      <p>I like to cook</p>
+    <div style={{ width: "260px" }}>
+      <h1 style={{ "text-align": "center", "font-size": "24px" }}>About Me</h1>
+      <img
+        src={christina}
+        alt="Christina Profile Photo"
+        width="100px"
+        style={{ margin: "15px auto 10px", display: "block" }}
+      />
+      <p style={{ padding: "0 10px" }}>
+        Hello! My name is Christina and I like to cook. combine my two passions
+        cooking and history! I will give you some helpful links to recipes.
+      </p>
     </div>
     <div style={{ display: "flex", "flex-direction": "column" }}>
       {data.posts.nodes.map(post => (
