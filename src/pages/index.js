@@ -32,7 +32,7 @@ export default ({ data }) => (
         <StyledLink to={`/${post.slug}`}>
           <img src={post.image.resize.src} />
         </StyledLink>
-        <div style={{ padding: "20px 28px ", border: "1px solid black" }}>
+        <div style={{ padding: "20px 28px " }}>
           <h2>
             <StyledLink to={`/${post.slug}`}>{post.title}s</StyledLink>
           </h2>
@@ -40,6 +40,9 @@ export default ({ data }) => (
           {post.description && (
             <div style={{ "margin-top": "15px", "font-size": "16px" }}>
               {post.description.description}
+              <StyledLink to={`/${post.slug}`} style={{ "font-size": "12px" }}>
+                read more
+              </StyledLink>
             </div>
           )}
         </div>
@@ -52,6 +55,9 @@ const Wrapper = styled.article`
   margin: 0 auto 36px;
   max-width: 640px;
   width: 100%;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  color: #262626;
 
   h2 {
     font-size: 24px;

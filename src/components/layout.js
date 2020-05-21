@@ -6,11 +6,11 @@ import theme from "../themes/theme"
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background: ${p => p.theme.colors.white};
+    background: #FAFAFA;
     min-height: 100vh;
     margin: 0;
     font-family: Helvetica, sans-serif;;
-    color: ${p => p.theme.colors.black};
+    
     
     h1,
     h2,
@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
       margin: 0;
       font-size: 18px;
       font-family: 'Lato', sans-serif;
+      color: #262626;
     }
   }
 `
