@@ -1,3 +1,18 @@
+<h1>The Foodstorian</h1>
+
+Food blog combining recipes and the history of food.
+
+First project using GatsbyJS and Contenful CMS.
+
+**THIS PROJECT IS A WORK IN PROGRESS**
+
+<h2>Project Features</h2>
+
+- Blog post written on Contentful dynamically creates a new page for that content &#x2705;
+- SEO optimization
+- Search blog posts
+- Pagination
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
