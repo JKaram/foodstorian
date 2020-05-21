@@ -1,4 +1,4 @@
-<h1>The Foodstorian</h1>
+<h1>The Foodstorian v0.1</h1>
 
 Food blog combining recipes and the history of food.
 
