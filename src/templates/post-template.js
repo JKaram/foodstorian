@@ -11,7 +11,7 @@ export const query = graphql`
     post: contentfulPost(slug: { eq: $slug }) {
       title
       subtitle
-      createdAt
+      createdAt(formatString: "DD MMMM YYYY")
       country
       image {
         resize(width: 800) {

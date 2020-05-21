@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     background: #FAFAFA;
     min-height: 100vh;
     margin: 0;
-    font-family: Helvetica, sans-serif;;
+    font-family: Helvetica, sans-serif;
     
     
     h1,

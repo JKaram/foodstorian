@@ -57,7 +57,6 @@ const Wrapper = styled.article`
   width: 100%;
   background-color: #fff;
   border: 1px solid #dbdbdb;
-  color: #262626;
 
   h2 {
     font-size: 24px;

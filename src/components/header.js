@@ -8,7 +8,6 @@ const Wrapper = styled.header`
   max-width: 800px;
   width: 100%;
   margin: 0 auto 20px;
-  border-bottom: 1px solid #000;
   display: flex;
   justify-content: center;
 
@@ -21,7 +20,7 @@ const Wrapper = styled.header`
 export const Header = () => (
   <Wrapper>
     <h1>
-      <StyledLink to="/">Foodstorian</StyledLink>
+      <StyledLink to="/">The Foodstorian</StyledLink>
     </h1>
   </Wrapper>
 )
