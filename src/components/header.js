@@ -23,7 +23,7 @@ const Wrapper = styled.header`
 export const Header = () => (
   <Wrapper>
     <h1>
-      <StyledLink to="/">The Foodstorian</StyledLink>
+      <StyledLink to="/">Foodstorian</StyledLink>
     </h1>
   </Wrapper>
 )

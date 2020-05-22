@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { graphql, Link } from "gatsby"
 
 import { Layout, StyledLink } from "../components/index"
+
 import christina from "../../static/images/christina-profile.png"
 
 export const query = graphql`
@@ -11,6 +12,7 @@ export const query = graphql`
       nodes {
         title
         slug
+        country
         createdAt(formatString: "DD MMMM YYYY")
         description {
           description
@@ -51,7 +53,21 @@ export default ({ data }) => (
             <h2>
               <StyledLink to={`/${post.slug}`}>{post.title}</StyledLink>
             </h2>
-            <time style={{ "font-size": "smaller" }}>{post.createdAt}</time>
+            <time style={{ "font-size": "smaller", display: "block" }}>
+              {post.createdAt}
+            </time>
+            {/* <Flag>
+              <img
+                src={flags.china.flag}
+                height="30px"
+                style={{
+                  margin: "0 10px 0 0",
+                  width: "30px",
+                  display: "inline-block",
+                }}
+              />
+              China
+            </Flag> */}
             {post.description && (
               <div style={{ "margin-top": "15px", "font-size": "16px" }}>
                 {post.description.description}
@@ -91,4 +107,9 @@ const Wrapper = styled.article`
   &:hover {
     /* transform: scale(1.01); */
   }
+`
+const Flag = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
 `
