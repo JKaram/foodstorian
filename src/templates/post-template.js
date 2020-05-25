@@ -99,7 +99,7 @@ const Blockquote = styled.blockquote`
     vertical-align: -0.4em;
   }
   p {
-    display: inline;
+    display: block;
   }
 `
 

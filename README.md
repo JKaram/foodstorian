@@ -2,7 +2,10 @@
 
 Food blog combining recipes and the history of food.
 
+Designing and styling everything from scratch
+
 First project using GatsbyJS and Contenful CMS.
+
 
 **THIS PROJECT IS A WORK IN PROGRESS**
 
@@ -19,6 +22,8 @@ First project using GatsbyJS and Contenful CMS.
 Check it out
 _reminder this is a work in progress_
 https://foodstorian.netlify.app/
+
+
 
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">

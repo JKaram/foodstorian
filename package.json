@@ -17,6 +17,7 @@
     "@contentful/gatsby-transformer-contentful-richtext": "^13.1.0",
     "@contentful/rich-text-react-renderer": "^13.4.0",
     "@contentful/rich-text-types": "^14.1.0",
+    "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.3.0",
     "gatsby": "^2.21.37",
     "gatsby-plugin-react-helmet": "^3.3.1",
     "gatsby-source-contentful": "^2.3.7",
