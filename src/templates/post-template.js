@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { BLOCKS } from "@contentful/rich-text-types"
+import { INLINES, BLOCKS } from "@contentful/rich-text-types"
 
 import { Layout, SEO } from "../components"
 
@@ -55,9 +55,13 @@ const PostTemplate = ({ data: { post } }) => (
       <div style={{ "line-height": "32px", "margin-top": "30px" }}>
         {documentToReactComponents(post.content.json, {
           renderNode: {
-            [BLOCKS.PARAGRAPH]: (node, children) => (
-              <Paragraph>{children}</Paragraph>
-            ),
+            [BLOCKS.PARAGRAPH]: (node, children) => {
+              return <Paragraph>{children}</Paragraph>
+            },
+            [INLINES.HYPERLINK]: (node, children) => {
+              console.log("> children", children)
+              return <a style={{ color: "red" }}>{children}</a>
+            },
             [BLOCKS.QUOTE]: (node, children) => (
               <Blockquote>{children}</Blockquote>
             ),
@@ -67,10 +71,15 @@ const PostTemplate = ({ data: { post } }) => (
                 alt={node.data.target.fields.title["en-US"]}
               />
             ),
-            [BLOCKS.HYPERLINK]: (node, children) => (
-              <a style={{ color: "red" }}>{children}</a>
-            ),
+            [BLOCKS.HYPERLINK]: (node, children) => <p></p>,
           },
+          [INLINES.ENTRY_HYPERLINK]: (node, next) => {
+            console.log("HERE")
+
+            return `<a class='spectrum-Link' href=''>${next(node.content)}</a>`
+          },
+          renderText: text =>
+            text.split("\n").flatMap((text, i) => [i > 0 && <br />, text]),
         })}
       </div>
     </div>
@@ -99,7 +108,7 @@ const Blockquote = styled.blockquote`
     vertical-align: -0.4em;
   }
   p {
-    display: block;
+    display: inline-block;
   }
 `
 
