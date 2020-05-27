@@ -14,7 +14,7 @@ export const query = graphql`
       createdAt(formatString: "DD MMMM YYYY")
       country
       image {
-        resize(width: 800) {
+        resize(width: 900) {
           width
           src
         }
@@ -29,68 +29,81 @@ export const query = graphql`
 const PostTemplate = ({ data: { post } }) => (
   <Layout>
     {/* <SEO title={post.title} description={post.subtitle} /> */}
-    <div styled={{ display: "flex" }}>
-      <img
-        src={post.image.resize.src}
-        alt={post.title}
-        style={{
-          "margin-top": "1em",
-          width: "100%",
-        }}
-      />
-      <h1
-        style={{
-          "font-size": "2.5em",
-          margin: "10px 0 ",
-          "letter-spacing": "1px",
-        }}
-      >
-        {post.title}
-      </h1>
-      <h2 style={{ "font-size": "1.2em", "margin-bottom": "10px" }}>
-        {post.subtitle}
-      </h2>
-      <time style={{ "font-size": "smaller" }}>{post.createdAt}</time>
+    <Wrapper>
+      <Img src={post.image.resize.src} alt={post.title} />
 
-      <div style={{ "line-height": "32px", "margin-top": "30px" }}>
-        {documentToReactComponents(post.content.json, {
-          renderNode: {
-            [BLOCKS.PARAGRAPH]: (node, children) => {
-              return <Paragraph>{children}</Paragraph>
-            },
-            [INLINES.HYPERLINK]: (node, children) => {
-              console.log("> children", children)
-              return <a style={{ color: "red" }}>{children}</a>
-            },
-            [BLOCKS.QUOTE]: (node, children) => (
-              <Blockquote>{children}</Blockquote>
-            ),
-            [BLOCKS.EMBEDDED_ASSET]: node => (
-              <img
-                src={`${node.data.target.fields.file["en-US"].url}?w=300&q=90`}
-                alt={node.data.target.fields.title["en-US"]}
-              />
-            ),
-            [BLOCKS.HYPERLINK]: (node, children) => <p></p>,
-          },
-          [INLINES.ENTRY_HYPERLINK]: (node, next) => {
-            console.log("HERE")
+      <div style={{ width: "97%", margin: "0 auto" }}>
+        <h1
+          style={{
+            "font-size": "2.5em",
+            margin: "10px 0 ",
+            "letter-spacing": "1px",
+          }}
+        >
+          {post.title}
+        </h1>
+        <h2 style={{ "font-size": "1.2em", "margin-bottom": "10px" }}>
+          {post.subtitle}
+        </h2>
+        <time style={{ "font-size": "smaller" }}>{post.createdAt}</time>
 
-            return `<a class='spectrum-Link' href=''>${next(node.content)}</a>`
-          },
-          renderText: text =>
-            text.split("\n").flatMap((text, i) => [i > 0 && <br />, text]),
-        })}
+        <div style={{ "line-height": "32px", "margin-top": "30px" }}>
+          {documentToReactComponents(post.content.json, {
+            renderNode: {
+              [BLOCKS.PARAGRAPH]: (node, children) => {
+                return <Paragraph>{children}</Paragraph>
+              },
+              [BLOCKS.HEADING_1]: (node, children) => <H1>{children}</H1>,
+              [BLOCKS.HEADING_2]: (node, children) => <H1>{children}</H1>,
+              [BLOCKS.HEADING_3]: (node, children) => <H1>{children}</H1>,
+              [INLINES.HYPERLINK]: (node, children) => {
+                return <a style={{ color: "red" }}>{children}</a>
+              },
+              [BLOCKS.QUOTE]: (node, children) => (
+                <Blockquote>{children}</Blockquote>
+              ),
+              [BLOCKS.EMBEDDED_ASSET]: node => (
+                <img
+                  src={`${node.data.target.fields.file["en-US"].url}?w=500&q=90`}
+                  alt={node.data.target.fields.title["en-US"]}
+                  style={{ margin: "20px auto", display: "block" }}
+                />
+              ),
+              [BLOCKS.HYPERLINK]: (node, children) => <p></p>,
+            },
+            [INLINES.ENTRY_HYPERLINK]: (node, next) => {
+              console.log("HERE")
+
+              return `<a class='spectrum-Link' href=''>${next(
+                node.content
+              )}</a>`
+            },
+            renderText: text =>
+              text.split("\n").flatMap((text, i) => [i > 0 && <br />, text]),
+          })}
+        </div>
       </div>
-    </div>
+    </Wrapper>
   </Layout>
 )
 
 export default PostTemplate
 
-const Img = styled.img`
-  display: block;
+const Wrapper = styled.div`
   margin: 0 auto;
+  width: 100%;
+`
+
+const Img = styled.img`
+  margin: 0 auto;
+  max-width: 900px;
+  width: 100%;
+  display: block;
+`
+
+const H1 = styled.h1`
+  margin: 20px 0 25px;
+  font-size: 1.5em;
 `
 
 const Blockquote = styled.blockquote`
@@ -108,7 +121,7 @@ const Blockquote = styled.blockquote`
     vertical-align: -0.4em;
   }
   p {
-    display: inline-block;
+    display: inline;
   }
 `
 

@@ -12,7 +12,6 @@ const Wrapper = styled.header`
 
   height: 80px;
   width: 100%;
-  margin-bottom: 30px;
 
   h1 {
     font-size: 2.5em;
