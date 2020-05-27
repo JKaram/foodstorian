@@ -35,7 +35,7 @@ const PostTemplate = ({ data: { post } }) => (
       <div style={{ width: "97%", margin: "0 auto" }}>
         <h1
           style={{
-            "font-size": "2.5em",
+            "font-size": "1.8em",
             margin: "10px 0 ",
             "letter-spacing": "1px",
           }}

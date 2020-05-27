@@ -7,13 +7,11 @@ export const BlogItem = ({ slug, image, title, createdAt, description }) => (
     <StyledLink to={`/${slug}`}>
       <img src={image} />
     </StyledLink>
-    <div style={{ padding: "20px 28px " }}>
-      <h2>
+    <div style={{ padding: "20px 22px " }}>
+      <h2 style={{ fontSize: "18px" }}>
         <StyledLink to={`/${slug}`}>{title}</StyledLink>
       </h2>
-      <time style={{ "font-size": "smaller", display: "block" }}>
-        {createdAt}
-      </time>
+      <time style={{ "font-size": "10px", display: "block" }}>{createdAt}</time>
       {/* <Flag>
               <img
                 src={flags.china.flag}
@@ -27,10 +25,13 @@ export const BlogItem = ({ slug, image, title, createdAt, description }) => (
               China
             </Flag> */}
       {description && (
-        <div style={{ "margin-top": "15px", "font-size": "16px" }}>
+        <div style={{ marginTop: "15px", "font-size": "12px" }}>
           {description}
-          <StyledLink to={`/${slug}`} style={{ "font-size": "12px" }}>
-            read more
+          <StyledLink
+            to={`/${slug}`}
+            style={{ "font-size": "12px", marginLeft: "10px" }}
+          >
+            Read more
           </StyledLink>
         </div>
       )}
@@ -39,12 +40,12 @@ export const BlogItem = ({ slug, image, title, createdAt, description }) => (
 )
 
 const Wrapper = styled.article`
-  margin: 0 auto 36px;
+  margin: 10px auto;
   max-width: 640px;
-  width: 97%;
+  width: 100%;
   background-color: #fff;
-  border: 1px solid #dbdbdb;
-
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
   h2 {
     font-size: 24px;
   }

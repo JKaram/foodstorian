@@ -3,6 +3,23 @@ import styled from "styled-components"
 
 import { StyledLink } from "../components"
 
+export const Header = () => (
+  <Wrapper>
+    <Title>
+      <h1>
+        <StyledLink to="/">Foodstorian</StyledLink>
+      </h1>
+
+      <nav>
+        <StyledLink style={{ marginRight: "10px" }} to="/contact">
+          Contact
+        </StyledLink>
+        <StyledLink to="/">More</StyledLink>
+      </nav>
+    </Title>
+  </Wrapper>
+)
+
 const Wrapper = styled.header`
   display: flex;
   justify-content: center;
@@ -23,24 +40,7 @@ const Title = styled.h1`
   margin: 0 auto;
 
   h1 {
-    font-size: 2em;
+    font-size: 1.5em;
     font-family: "Oxygen", sans-serif;
   }
 `
-
-export const Header = () => (
-  <Wrapper>
-    <Title>
-      <h1>
-        <StyledLink to="/">Foodstorian</StyledLink>
-      </h1>
-
-      <nav>
-        <StyledLink style={{ "margin-right": "10px" }} to="/">
-          Contact
-        </StyledLink>
-        <StyledLink to="/">More</StyledLink>
-      </nav>
-    </Title>
-  </Wrapper>
-)

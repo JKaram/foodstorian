@@ -4,7 +4,7 @@ import christina from "../../static/images/christina-profile.png"
 
 export const AboutSection = () => (
   <Wrapper>
-    <h1 style={{ "text-align": "center", "font-size": "24px" }}>About Me</h1>
+    <h1 style={{ textAlign: "center", fontSize: "24px" }}>About Me</h1>
     <img
       src={christina}
       alt="Christina Profile Photo"
