@@ -12,17 +12,35 @@ const Wrapper = styled.header`
 
   height: 80px;
   width: 100%;
+`
+const Title = styled.h1`
+  max-width: 900px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+
+  margin: 0 auto;
 
   h1 {
-    font-size: 2.5em;
+    font-size: 2em;
     font-family: "Oxygen", sans-serif;
   }
 `
 
 export const Header = () => (
   <Wrapper>
-    <h1>
-      <StyledLink to="/">Foodstorian</StyledLink>
-    </h1>
+    <Title>
+      <h1>
+        <StyledLink to="/">Foodstorian</StyledLink>
+      </h1>
+
+      <nav>
+        <StyledLink style={{ "margin-right": "10px" }} to="/">
+          Contact
+        </StyledLink>
+        <StyledLink to="/">More</StyledLink>
+      </nav>
+    </Title>
   </Wrapper>
 )
