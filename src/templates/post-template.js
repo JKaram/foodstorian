@@ -66,7 +66,12 @@ const PostTemplate = ({ data: { post } }) => (
                 <img
                   src={`${node.data.target.fields.file["en-US"].url}?w=500&q=90`}
                   alt={node.data.target.fields.title["en-US"]}
-                  style={{ margin: "20px auto", display: "block" }}
+                  style={{
+                    margin: "20px auto",
+                    display: "block",
+                    maxWidth: "500px",
+                    width: "100%",
+                  }}
                 />
               ),
               [BLOCKS.HYPERLINK]: (node, children) => <p></p>,

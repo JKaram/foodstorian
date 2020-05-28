@@ -24,8 +24,7 @@ const Wrapper = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  height: 150px;
+  height: 100px;
   width: 100%;
 `
 const Title = styled.h1`
@@ -34,7 +33,6 @@ const Title = styled.h1`
   width: 100%;
   justify-content: center;
   align-items: center;
-
   margin: 0 auto;
 
   h1 {
