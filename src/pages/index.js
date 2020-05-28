@@ -18,6 +18,7 @@ export default ({ data }) => (
             image={post.image.resize.src}
             title={post.title}
             createdAt={post.createdAt}
+            country={post.country}
             description={description}
           />
         )
