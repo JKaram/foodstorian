@@ -11,8 +11,6 @@ export const BlogItem = ({
   description,
   country,
 }) => {
-  console.log(country)
-
   return (
     <Wrapper key={`post-${slug}`}>
       <StyledLink to={`/${slug}`}>
