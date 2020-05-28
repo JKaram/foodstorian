@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { StyledLink } from "./index"
-import flag from "../../static/images/flags/china.svg"
 
 export const BlogItem = ({
   slug,
