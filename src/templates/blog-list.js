@@ -1,31 +1,38 @@
 import React from "react"
-import styled from "styled-components"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 
-import { Layout, StyledLink, AboutSection, BlogItem } from "../components/index"
+import { Layout, AboutSection, BlogItem } from "../components/index"
 
-export default ({ data }) => (
-  <Layout>
-    <AboutSection />
-    <div style={{ display: "flex", flexDirection: "column", margin: "0 auto" }}>
-      {data.posts.nodes.map(post => {
-        const description =
-          post.description !== null ? post.description.description : null
-        return (
-          <BlogItem
-            key={post.slug}
-            slug={post.slug}
-            image={post.image.resize.src}
-            title={post.title}
-            createdAt={post.createdAt}
-            country={post.country}
-            description={description}
-          />
-        )
-      })}
-    </div>
-  </Layout>
-)
+export default props => {
+  console.log(props)
+
+  const data = props.data
+  return (
+    <Layout>
+      <AboutSection />
+      <div
+        style={{ display: "flex", flexDirection: "column", margin: "0 auto" }}
+      >
+        {data.posts.nodes.map(post => {
+          const description =
+            post.description !== null ? post.description.description : null
+          return (
+            <BlogItem
+              key={post.slug}
+              slug={post.slug}
+              image={post.image.resize.src}
+              title={post.title}
+              createdAt={post.createdAt}
+              country={post.country}
+              description={description}
+            />
+          )
+        })}
+      </div>
+      <button></button>
+    </Layout>
+  )
+}
 
 export const query = graphql`
   query blogListQuery($skip: Int!, $limit: Int!) {

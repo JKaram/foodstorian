@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { INLINES, BLOCKS } from "@contentful/rich-text-types"
 
-import { Layout, SEO } from "../components"
+import { Layout } from "../components"
 
 export const query = graphql`
   query($slug: String!) {
@@ -26,69 +26,71 @@ export const query = graphql`
   }
 `
 
-const PostTemplate = ({ data: { post } }) => (
-  <Layout>
-    {/* <SEO title={post.title} description={post.subtitle} /> */}
-    <Wrapper>
-      <Img src={post.image.resize.src} alt={post.title} />
+const PostTemplate = ({ data: { post } }) => {
+  return (
+    <Layout>
+      {/* <SEO title={post.title} description={post.subtitle} /> */}
+      <Wrapper>
+        <Img src={post.image.resize.src} alt={post.title} />
 
-      <div style={{ width: "97%", margin: "0 auto" }}>
-        <h1
-          style={{
-            "font-size": "1.8em",
-            margin: "10px 0 ",
-            "letter-spacing": "1px",
-          }}
-        >
-          {post.title}
-        </h1>
-        <h2 style={{ "font-size": "1.2em", "margin-bottom": "10px" }}>
-          {post.subtitle}
-        </h2>
-        <time style={{ "font-size": "smaller" }}>{post.createdAt}</time>
+        <div style={{ width: "97%", margin: "0 auto" }}>
+          <h1
+            style={{
+              fontSize: "1.8em",
+              margin: "10px 0 ",
+              letterSpacing: "1px",
+            }}
+          >
+            {post.title}
+          </h1>
+          <h2 style={{ fontSize: "1.2em", marginBottom: "10px" }}>
+            {post.subtitle}
+          </h2>
+          <time style={{ fontSize: "smaller" }}>{post.createdAt}</time>
 
-        <div style={{ "line-height": "32px", "margin-top": "30px" }}>
-          {documentToReactComponents(post.content.json, {
-            renderNode: {
-              [BLOCKS.PARAGRAPH]: (node, children) => {
-                return <Paragraph>{children}</Paragraph>
+          <div style={{ lineHeight: "32px", marginTop: "30px" }}>
+            {documentToReactComponents(post.content.json, {
+              renderNode: {
+                [BLOCKS.PARAGRAPH]: (node, children) => {
+                  return <Paragraph>{children}</Paragraph>
+                },
+                [BLOCKS.HEADING_1]: (node, children) => <H1>{children}</H1>,
+                [BLOCKS.HEADING_2]: (node, children) => <H1>{children}</H1>,
+                [BLOCKS.HEADING_3]: (node, children) => <H1>{children}</H1>,
+                [INLINES.HYPERLINK]: (node, children) => {
+                  return <a style={{ color: "red" }}>{children}</a>
+                },
+                [BLOCKS.QUOTE]: (node, children) => (
+                  <Blockquote>{children}</Blockquote>
+                ),
+                [BLOCKS.EMBEDDED_ASSET]: node => (
+                  <img
+                    src={`${node.data.target.fields.file["en-US"].url}?w=500&q=90`}
+                    alt={node.data.target.fields.title["en-US"]}
+                    style={{
+                      margin: "20px auto",
+                      display: "block",
+                      maxWidth: "500px",
+                      width: "100%",
+                    }}
+                  />
+                ),
+                [BLOCKS.HYPERLINK]: (node, children) => <p></p>,
               },
-              [BLOCKS.HEADING_1]: (node, children) => <H1>{children}</H1>,
-              [BLOCKS.HEADING_2]: (node, children) => <H1>{children}</H1>,
-              [BLOCKS.HEADING_3]: (node, children) => <H1>{children}</H1>,
-              [INLINES.HYPERLINK]: (node, children) => {
-                return <a style={{ color: "red" }}>{children}</a>
+              [INLINES.ENTRY_HYPERLINK]: (node, next) => {
+                return `<a class='spectrum-Link' href=''>${next(
+                  node.content
+                )}</a>`
               },
-              [BLOCKS.QUOTE]: (node, children) => (
-                <Blockquote>{children}</Blockquote>
-              ),
-              [BLOCKS.EMBEDDED_ASSET]: node => (
-                <img
-                  src={`${node.data.target.fields.file["en-US"].url}?w=500&q=90`}
-                  alt={node.data.target.fields.title["en-US"]}
-                  style={{
-                    margin: "20px auto",
-                    display: "block",
-                    maxWidth: "500px",
-                    width: "100%",
-                  }}
-                />
-              ),
-              [BLOCKS.HYPERLINK]: (node, children) => <p></p>,
-            },
-            [INLINES.ENTRY_HYPERLINK]: (node, next) => {
-              return `<a class='spectrum-Link' href=''>${next(
-                node.content
-              )}</a>`
-            },
-            renderText: text =>
-              text.split("\n").flatMap((text, i) => [i > 0 && <br />, text]),
-          })}
+              renderText: text =>
+                text.split("\n").flatMap((text, i) => [i > 0 && <br />, text]),
+            })}
+          </div>
         </div>
-      </div>
-    </Wrapper>
-  </Layout>
-)
+      </Wrapper>
+    </Layout>
+  )
+}
 
 export default PostTemplate
 

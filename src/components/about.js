@@ -7,7 +7,7 @@ export const AboutSection = () => (
     <h1 style={{ textAlign: "center", fontSize: "24px" }}>About Me</h1>
     <img
       src={christina}
-      alt="Christina Profile Photo"
+      alt="Christina Stokes"
       width="100px"
       style={{ margin: "15px auto 10px", display: "block" }}
     />

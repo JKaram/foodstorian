@@ -18,9 +18,7 @@ export const Header = () => {
         }}
       >
         <Title>
-          <h1>
-            <StyledLink to="/">Foodstorian</StyledLink>
-          </h1>
+          <StyledLink to="/">Foodstorian</StyledLink>
         </Title>
 
         <MobileMenuIcon onClick={() => setToggleNav(!toggleNav)}>
@@ -62,10 +60,8 @@ const MobileMenuIcon = styled.div`
   }
 `
 const Title = styled.h1`
-  h1 {
-    font-size: 1.5em;
-    font-family: "Oxygen", sans-serif;
-    padding: 15px 40px;
-    border: 4px solid black;
-  }
+  font-size: 1.5em;
+  font-family: "Oxygen", sans-serif;
+  padding: 15px 40px;
+  border: 4px solid black;
 `

@@ -13,7 +13,7 @@ export const BlogItem = ({
   return (
     <Wrapper key={`post-${slug}`}>
       <StyledLink to={`/${slug}`}>
-        <img src={image} />
+        <img src={image} alt={title} />
       </StyledLink>
       <div style={{ padding: "20px 22px " }}>
         <div
@@ -31,6 +31,7 @@ export const BlogItem = ({
               <div>{country}</div>
               <img
                 src={require(`../../static/images/flags/${country}.svg`)}
+                alt={country}
                 height="30px"
                 style={{
                   margin: "0 0 0 5px",
@@ -41,17 +42,15 @@ export const BlogItem = ({
             </Flag>
           )}
         </div>
-        <time style={{ "font-size": "12px", display: "block" }}>
-          {createdAt}
-        </time>
+        <time style={{ fontSize: "12px", display: "block" }}>{createdAt}</time>
 
         {description && (
-          <div style={{ marginTop: "10px", "font-size": "14px" }}>
+          <div style={{ marginTop: "10px", fontSize: "14px" }}>
             <p>{description}</p>
             <StyledLink
               to={`/${slug}`}
               style={{
-                "font-size": "18px",
+                fontSize: "18px",
                 textAlign: "center",
                 display: "block",
                 marginTop: "15px",
