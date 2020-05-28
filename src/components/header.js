@@ -9,32 +9,42 @@ export const Header = () => (
       <h1>
         <StyledLink to="/">Foodstorian</StyledLink>
       </h1>
+    </Title>
 
-      {/* <nav>
+    {/* <nav>
         <StyledLink style={{ marginRight: "10px" }} to="/contact">
           Contact
         </StyledLink>
         <StyledLink to="/">More</StyledLink>
       </nav> */}
-    </Title>
+    <MobileMenuIcon>
+      <div />
+      <div />
+      <div />
+    </MobileMenuIcon>
   </Wrapper>
 )
 
+const MobileMenuIcon = styled.div`
+  width: 25px;
+  > div {
+    height: 3px;
+    background: #000;
+    margin: 5px 0;
+    width: 100%;
+  }
+  @media (min-width: 768px) {
+    display: none;
+  }
+`
 const Wrapper = styled.header`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   height: 100px;
   width: 100%;
 `
 const Title = styled.h1`
-  max-width: 900px;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-
   h1 {
     font-size: 1.5em;
     font-family: "Oxygen", sans-serif;
