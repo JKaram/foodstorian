@@ -1,30 +1,54 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 
 import { StyledLink } from "../components"
 
-export const Header = () => (
-  <Wrapper>
-    <Title>
-      <h1>
-        <StyledLink to="/">Foodstorian</StyledLink>
-      </h1>
-    </Title>
+export const Header = () => {
+  const [toggleNav, setToggleNav] = useState(false)
 
-    {/* <nav>
-        <StyledLink style={{ marginRight: "10px" }} to="/contact">
-          Contact
-        </StyledLink>
-        <StyledLink to="/">More</StyledLink>
-      </nav> */}
-    <MobileMenuIcon>
-      <div />
-      <div />
-      <div />
-    </MobileMenuIcon>
-  </Wrapper>
-)
+  return (
+    <Wrapper>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          alignItems: "center",
+          width: "100%",
+          margin: "10px 0",
+        }}
+      >
+        <Title>
+          <h1>
+            <StyledLink to="/">Foodstorian</StyledLink>
+          </h1>
+        </Title>
 
+        <MobileMenuIcon onClick={() => setToggleNav(!toggleNav)}>
+          <div />
+          <div />
+          <div />
+        </MobileMenuIcon>
+      </div>
+
+      {toggleNav && (
+        <nav>
+          <StyledLink style={{ marginRight: "10px" }} to="/contact">
+            Contact
+          </StyledLink>
+          <StyledLink to="/">More</StyledLink>
+        </nav>
+      )}
+    </Wrapper>
+  )
+}
+
+const Wrapper = styled.header`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+`
 const MobileMenuIcon = styled.div`
   width: 25px;
   > div {
@@ -36,13 +60,6 @@ const MobileMenuIcon = styled.div`
   @media (min-width: 768px) {
     display: none;
   }
-`
-const Wrapper = styled.header`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 100px;
-  width: 100%;
 `
 const Title = styled.h1`
   h1 {
