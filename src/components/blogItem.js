@@ -16,37 +16,50 @@ export const BlogItem = ({
         <img src={image} />
       </StyledLink>
       <div style={{ padding: "20px 22px " }}>
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <h2 style={{ fontSize: "18px" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <h2 style={{ fontSize: "22px" }}>
             <StyledLink to={`/${slug}`}>{title}</StyledLink>
           </h2>
           {country && (
             <Flag>
+              <div>{country}</div>
               <img
                 src={require(`../../static/images/flags/${country}.svg`)}
                 height="30px"
                 style={{
-                  margin: "0 5px 0 0",
-                  width: "25px",
+                  margin: "0 0 0 5px",
+                  width: "30px",
                   display: "inline-block",
                 }}
               />
-              {country}
             </Flag>
           )}
         </div>
-        <time style={{ "font-size": "10px", display: "block" }}>
+        <time style={{ "font-size": "12px", display: "block" }}>
           {createdAt}
         </time>
 
         {description && (
-          <div style={{ marginTop: "5px", "font-size": "12px" }}>
-            {description}
+          <div style={{ marginTop: "10px", "font-size": "14px" }}>
+            <p>{description}</p>
             <StyledLink
               to={`/${slug}`}
-              style={{ "font-size": "12px", marginLeft: "10px" }}
+              style={{
+                "font-size": "18px",
+                textAlign: "center",
+                display: "block",
+                marginTop: "15px",
+                letterSpacing: "1px",
+                color: "#000",
+              }}
             >
-              Read more
+              Read More
             </StyledLink>
           </div>
         )}
@@ -62,7 +75,7 @@ const Wrapper = styled.article`
   background-color: #fff;
   border-top: 1px solid #dbdbdb;
   border-bottom: 1px solid #dbdbdb;
-  font-size: 12px;
+  font-size: 16px;
   h2 {
     font-size: 24px;
   }
@@ -81,5 +94,4 @@ const Wrapper = styled.article`
 const Flag = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 10px;
 `
