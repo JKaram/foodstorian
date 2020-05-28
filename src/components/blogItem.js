@@ -19,26 +19,29 @@ export const BlogItem = ({
         <img src={image} />
       </StyledLink>
       <div style={{ padding: "20px 22px " }}>
-        <h2 style={{ fontSize: "18px" }}>
-          <StyledLink to={`/${slug}`}>{title}</StyledLink>
-        </h2>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <h2 style={{ fontSize: "18px" }}>
+            <StyledLink to={`/${slug}`}>{title}</StyledLink>
+          </h2>
+          {country && (
+            <Flag>
+              <img
+                src={require(`../../static/images/flags/${country}.svg`)}
+                height="30px"
+                style={{
+                  margin: "0 5px 0 0",
+                  width: "25px",
+                  display: "inline-block",
+                }}
+              />
+              {country}
+            </Flag>
+          )}
+        </div>
         <time style={{ "font-size": "10px", display: "block" }}>
           {createdAt}
         </time>
-        {country && (
-          <Flag>
-            <img
-              src={require(`../../static/images/flags/${country}.svg`)}
-              height="30px"
-              style={{
-                margin: "0 5px 0 0",
-                width: "25px",
-                display: "inline-block",
-              }}
-            />
-            {country}
-          </Flag>
-        )}
+
         {description && (
           <div style={{ marginTop: "5px", "font-size": "12px" }}>
             {description}
@@ -81,5 +84,5 @@ const Wrapper = styled.article`
 const Flag = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 2px;
+  margin-left: 10px;
 `
