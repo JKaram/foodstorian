@@ -77,8 +77,6 @@ const PostTemplate = ({ data: { post } }) => (
               [BLOCKS.HYPERLINK]: (node, children) => <p></p>,
             },
             [INLINES.ENTRY_HYPERLINK]: (node, next) => {
-              console.log("HERE")
-
               return `<a class='spectrum-Link' href=''>${next(
                 node.content
               )}</a>`
