@@ -1,12 +1,14 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import { Layout, AboutSection, BlogItem } from "../components/index"
 
 export default props => {
-  console.log(props)
-
   const data = props.data
+  const { currentPage, numPages } = props.pageContext
+  const prevPage = currentPage - 1 === 1 ? "/blog" : `/blog/${currentPage - 1}`
+  const nextPage = currentPage === numPages ? null : `/blog/${currentPage + 1}`
+
   return (
     <Layout>
       <AboutSection />
@@ -29,7 +31,11 @@ export default props => {
           )
         })}
       </div>
-      <button></button>
+
+      {props.location.pathname !== "/blog" && (
+        <Link to={prevPage}>previous</Link>
+      )}
+      {nextPage && <Link to={nextPage}>next</Link>}
     </Layout>
   )
 }
