@@ -1,13 +1,15 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import styled from "styled-components"
+import { graphql } from "gatsby"
 
-import { Layout, AboutSection, BlogItem } from "../components/index"
+import { Layout, AboutSection, BlogItem, StyledLink } from "../components/index"
 
 export default props => {
   const data = props.data
   const { currentPage, numPages } = props.pageContext
   const prevPage = currentPage - 1 === 1 ? "/blog" : `/blog/${currentPage - 1}`
   const nextPage = currentPage === numPages ? null : `/blog/${currentPage + 1}`
+  console.log(props.location.pathname)
 
   return (
     <Layout>
@@ -30,15 +32,25 @@ export default props => {
             />
           )
         })}
+        <PaginationWrapper pathname={props.location.pathname}>
+          {props.location.pathname !== "/blog" && (
+            <StyledLink to={prevPage}>Previous</StyledLink>
+          )}
+          {nextPage && <StyledLink to={nextPage}>Next</StyledLink>}
+        </PaginationWrapper>
       </div>
-
-      {props.location.pathname !== "/blog" && (
-        <Link to={prevPage}>previous</Link>
-      )}
-      {nextPage && <Link to={nextPage}>next</Link>}
     </Layout>
   )
 }
+
+const PaginationWrapper = styled.div`
+  display: flex;
+  justify-content: ${p =>
+    p.pathname === "/blog" ? "flex-end" : "space-between"};
+  width: "95%";
+  margin: "10px 0";
+  display: "flex";
+`
 
 export const query = graphql`
   query blogListQuery($skip: Int!, $limit: Int!) {
