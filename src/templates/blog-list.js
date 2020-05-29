@@ -47,9 +47,8 @@ const PaginationWrapper = styled.div`
   display: flex;
   justify-content: ${p =>
     p.pathname === "/blog" ? "flex-end" : "space-between"};
-  width: "95%";
-  margin: "10px 0";
-  display: "flex";
+  width: 95%;
+  margin: 10px 0;
 `
 
 export const query = graphql`

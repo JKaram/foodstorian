@@ -6,15 +6,14 @@ Designing and styling everything from scratch
 
 First project using GatsbyJS and Contenful CMS.
 
-
 **THIS PROJECT IS A WORK IN PROGRESS**
 
 <h2>Project Features</h2>
 
 - Blog post written on Contentful dynamically creates a new page for that content &#x2705;
+- Pagination &#x2705;
 - SEO optimization
 - Search blog posts
-- Pagination
 - Comment Section
 
 ![version1](https://raw.githubusercontent.com/JKaram/foodstorian/master/static/images/readme_v1.PNG)
@@ -22,8 +21,6 @@ First project using GatsbyJS and Contenful CMS.
 Check it out
 _reminder this is a work in progress_
 https://foodstorian.netlify.app/
-
-
 
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
