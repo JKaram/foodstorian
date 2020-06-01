@@ -34,9 +34,9 @@ export default props => {
         })}
         <PaginationWrapper pathname={props.location.pathname}>
           {props.location.pathname !== "/blog" && (
-            <StyledLink to={prevPage}>Previous</StyledLink>
+            <LinkButton to={prevPage}>Previous</LinkButton>
           )}
-          {nextPage && <StyledLink to={nextPage}>Next</StyledLink>}
+          {nextPage && <LinkButton to={nextPage}>Next</LinkButton>}
         </PaginationWrapper>
       </div>
     </Layout>
@@ -49,6 +49,14 @@ const PaginationWrapper = styled.div`
     p.pathname === "/blog" ? "flex-end" : "space-between"};
   width: 95%;
   margin: 10px 0;
+`
+
+const LinkButton = styled(StyledLink)`
+  background: #000;
+  color: #fff;
+  padding: 10px 15px;
+  width: 75px;
+  text-align: center;
 `
 
 export const query = graphql`
