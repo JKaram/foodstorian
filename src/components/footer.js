@@ -12,7 +12,6 @@ export const Footer = () => (
 const StyledFooter = styled.footer`
   background-color: #fff;
   width: 100%;
-  border-top: 1px solid #efefef;
   height: 50px;
 
   display: flex;

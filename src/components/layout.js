@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     margin: 0;
     font-family: Helvetica, sans-serif;
+    position: relative;
     
     
     h1,
@@ -28,6 +29,7 @@ const Main = styled.div`
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
+  min-height: calc(100vh - 50px - 100px); /* Sticky Footer */
 `
 
 export const Layout = ({ children }) => {
