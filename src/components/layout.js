@@ -6,7 +6,7 @@ import theme from "../themes/theme"
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background: #FAFAFA;
+    background: #FFF;
     min-height: 100vh;
     margin: 0;
     font-family: Helvetica, sans-serif;

@@ -114,8 +114,9 @@ const H1 = styled.h1`
 const Blockquote = styled.blockquote`
   background: #f9f9f9;
   border-left: 10px solid #ccc;
-  margin: 1.5em 10px;
+  margin: 1.5em auto;
   padding: 0.5em 10px;
+  width: 80%;
 
   &:before {
     color: #ccc;
