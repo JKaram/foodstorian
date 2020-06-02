@@ -43,7 +43,13 @@ const PostTemplate = ({ data: { post } }) => {
           >
             {post.title}
           </h1>
-          <h2 style={{ fontSize: "1.2em", marginBottom: "10px" }}>
+          <h2
+            style={{
+              fontSize: "1.2em",
+              marginBottom: "10px",
+              color: "#0e0e0e",
+            }}
+          >
             {post.subtitle}
           </h2>
           <time style={{ fontSize: "smaller" }}>{post.createdAt}</time>

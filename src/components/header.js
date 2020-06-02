@@ -1,11 +1,10 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 
-import { StyledLink } from "../components"
+import { StyledLink, mobileMenu } from "../components"
+import { MobileMenu } from "./mobileMenu"
 
-export const Header = () => {
-  const [toggleNav, setToggleNav] = useState(false)
-
+export const Header = ({ toggleNav }) => {
   return (
     <Wrapper>
       <div
@@ -14,28 +13,19 @@ export const Header = () => {
           justifyContent: "space-around",
           alignItems: "center",
           width: "100%",
-          margin: "10px 0",
+          margin: "auto 0",
         }}
       >
         <Title>
           <StyledLink to="/">Foodstorian</StyledLink>
         </Title>
 
-        <MobileMenuIcon onClick={() => setToggleNav(!toggleNav)}>
+        <MobileMenuIcon onClick={() => toggleNav()}>
           <div />
           <div />
           <div />
         </MobileMenuIcon>
       </div>
-
-      {toggleNav && (
-        <nav>
-          <StyledLink style={{ marginRight: "10px" }} to="/contact">
-            Contact
-          </StyledLink>
-          <StyledLink to="/">More</StyledLink>
-        </nav>
-      )}
     </Wrapper>
   )
 }

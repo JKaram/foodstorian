@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
 
 import { Header, Footer } from "./index"
@@ -32,11 +32,11 @@ const Main = styled.div`
   min-height: calc(100vh - 50px - 100px); /* Sticky Footer */
 `
 
-export const Layout = ({ children }) => {
+export const Layout = ({ children, toggleNav }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Header />
+      <Header toggleNav={toggleNav} />
       <Main>{children}</Main>
       <Footer />
     </ThemeProvider>
