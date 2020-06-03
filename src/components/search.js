@@ -7,7 +7,6 @@ export const SearchBar = () => {
   const [text, setText] = useState("")
   const [results, setResults] = useState([])
   const updateText = input => setText(input)
-  console.log("Text", text)
 
   const searchClient = algoliasearch(
     "G98X5TNFRT",
@@ -28,8 +27,6 @@ export const SearchBar = () => {
       setResults([])
     }
   }, [text])
-
-  console.log(results)
 
   return (
     <div style={{ width: "300px" }}>
