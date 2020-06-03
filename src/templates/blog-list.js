@@ -2,13 +2,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { graphql } from "gatsby"
 
-import {
-  Layout,
-  AboutSection,
-  BlogItem,
-  StyledLink,
-  MobileMenu,
-} from "../components/index"
+import { Layout, AboutSection, BlogItem, StyledLink } from "../components/index"
 
 export default props => {
   const data = props.data
@@ -16,14 +10,8 @@ export default props => {
   const prevPage = currentPage - 1 === 1 ? "/blog" : `/blog/${currentPage - 1}`
   const nextPage = currentPage === numPages ? null : `/blog/${currentPage + 1}`
 
-  const [isNavOpen, setNavOpen] = useState(false)
-  const toggleNav = () => {
-    setNavOpen(!isNavOpen)
-  }
-
   return (
-    <Layout isNavOpen={isNavOpen} toggleNav={toggleNav}>
-      {isNavOpen && <MobileMenu />}
+    <Layout>
       <AboutSection />
       <div
         style={{ display: "flex", flexDirection: "column", margin: "0 auto" }}

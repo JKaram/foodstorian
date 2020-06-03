@@ -3,6 +3,7 @@ import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
 
 import { Header, Footer } from "./index"
 import theme from "../themes/theme"
+import { MobileMenu } from "./mobileMenu"
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -10,8 +11,8 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     margin: 0;
     font-family: Helvetica, sans-serif;
-    position: relative;
-    
+
+    position: ${p => (p.isNavOpen ? "fixed" : "realtive")};
     
     h1,
     h2,
@@ -32,12 +33,19 @@ const Main = styled.div`
   min-height: calc(100vh - 50px - 100px); /* Sticky Footer */
 `
 
-export const Layout = ({ children, toggleNav }) => {
+export const Layout = ({ children }) => {
+  const [isNavOpen, setNavOpen] = useState(false)
+  const toggleNav = () => {
+    setNavOpen(!isNavOpen)
+  }
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
+      <GlobalStyle isNavOpen={isNavOpen} />
       <Header toggleNav={toggleNav} />
-      <Main>{children}</Main>
+      <Main>
+        {isNavOpen && <MobileMenu />}
+        {children}
+      </Main>
       <Footer />
     </ThemeProvider>
   )

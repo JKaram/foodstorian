@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import styled from "styled-components"
 
 import { StyledLink, mobileMenu } from "../components"
-import { MobileMenu } from "./mobileMenu"
 
 export const Header = ({ toggleNav }) => {
   return (
