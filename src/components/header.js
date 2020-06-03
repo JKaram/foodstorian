@@ -17,7 +17,7 @@ export const Header = ({ toggleNav }) => {
         }}
       >
         <Title>
-          <StyledLink to="/">Foodstorian</StyledLink>
+          <StyledLink to="/">Food Blog</StyledLink>
         </Title>
         <SearchBar />
         {/* <MobileMenuIcon onClick={() => toggleNav()}>
