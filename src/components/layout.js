@@ -30,6 +30,7 @@ const Main = styled.div`
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
+  padding-top: 120px;
   min-height: calc(100vh - 50px - 100px); /* Sticky Footer */
 `
 

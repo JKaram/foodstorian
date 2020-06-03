@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 
-import { StyledLink, mobileMenu } from "../components"
+import { StyledLink, mobileMenu, SearchBar } from "../components"
 
 export const Header = ({ toggleNav }) => {
   return (
@@ -11,6 +11,7 @@ export const Header = ({ toggleNav }) => {
           display: "flex",
           justifyContent: "space-around",
           alignItems: "center",
+          maxWidth: "900px",
           width: "100%",
           margin: "auto 0",
         }}
@@ -18,12 +19,12 @@ export const Header = ({ toggleNav }) => {
         <Title>
           <StyledLink to="/">Foodstorian</StyledLink>
         </Title>
-
-        <MobileMenuIcon onClick={() => toggleNav()}>
+        <SearchBar />
+        {/* <MobileMenuIcon onClick={() => toggleNav()}>
           <div />
           <div />
           <div />
-        </MobileMenuIcon>
+        </MobileMenuIcon> */}
       </div>
     </Wrapper>
   )
@@ -35,6 +36,8 @@ const Wrapper = styled.header`
   align-items: center;
   height: 100px;
   width: 100%;
+  position: fixed;
+  background: #fff;
 `
 const MobileMenuIcon = styled.div`
   width: 25px;

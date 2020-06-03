@@ -24,4 +24,6 @@ const Wrapper = styled.div`
   background: white;
   height: 100vh;
   width: 100vh;
+  transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};
+  transition: all 0.3s linear;
 `
