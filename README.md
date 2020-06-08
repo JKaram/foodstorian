@@ -13,7 +13,7 @@ First project using GatsbyJS and Contenful CMS.
 - Blog post written on Contentful dynamically creates a new page for that content &#x2705;
 - Pagination &#x2705;
 - SEO optimization
-- Search blog posts
+- Search blog posts &#x2705;
 - Comment Section
 
 ![version1](https://raw.githubusercontent.com/JKaram/foodstorian/master/static/images/readme_v1.PNG)
