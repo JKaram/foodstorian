@@ -18,10 +18,6 @@ First project using GatsbyJS and Contenful CMS.
 
 ![version1](https://raw.githubusercontent.com/JKaram/foodstorian/master/static/images/readme_v1.PNG)
 
-Check it out
-_reminder this is a work in progress_
-https://foodstorian.netlify.app/
-
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
